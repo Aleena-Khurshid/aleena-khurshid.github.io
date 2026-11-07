@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aleena Khurshid | Computer Vision &amp; AI Engineer</title>
+<meta name="description" content="Portfolio of Aleena Khurshid, Computer Vision and AI Engineer from Pakistan. Projects in object detection, OCR, NLP, and RAG.">
+<style>
+  :root {
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --text: #1d2733;
+    --muted: #5b6776;
+    --accent: #1f3a5f;
+    --accent-2: #2a7f8f;
+    --border: #e1e7ef;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .container { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  nav .logo { font-weight: 700; color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 22px; }
+  nav ul a { color: var(--muted); font-size: 0.95rem; }
+  nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+  header.hero { padding: 90px 0 70px; background: linear-gradient(135deg, #eaf1f9 0%, #f7f9fc 60%); }
+  .hero h1 { font-size: 2.8rem; color: var(--accent); letter-spacing: -0.5px; }
+  .hero .role { font-size: 1.2rem; color: var(--accent-2); margin-top: 6px; font-weight: 600; }
+  .hero .summary { margin-top: 18px; max-width: 680px; color: var(--muted); font-size: 1.05rem; }
+  .hero .meta { margin-top: 20px; color: var(--muted); font-size: 0.95rem; }
+  .hero .meta span { margin-right: 18px; }
+  .btns { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 10px 20px; border-radius: 8px;
+    font-weight: 600; font-size: 0.95rem; border: 1px solid var(--accent);
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #163052; text-decoration: none; }
+  .btn-outline { background: transparent; color: var(--accent); }
+  .btn-outline:hover { background: #eaf1f9; text-decoration: none; }
+
+  section { padding: 64px 0; }
+  section.alt { background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  h2 { font-size: 1.7rem; color: var(--accent); margin-bottom: 8px; }
+  .section-sub { color: var(--muted); margin-bottom: 30px; }
+
+  .about p { color: var(--text); max-width: 760px; font-size: 1.02rem; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .skill-card h3 { font-size: 1rem; color: var(--accent); margin-bottom: 8px; }
+  .skill-card p { color: var(--muted); font-size: 0.95rem; }
+
+  .timeline .item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin-bottom: 16px; }
+  .item h3 { font-size: 1.1rem; color: var(--text); }
+  .item .org { color: var(--accent-2); font-weight: 600; font-size: 0.95rem; }
+  .item .when { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+  .item ul { padding-left: 20px; color: var(--text); font-size: 0.97rem; }
+  .item li { margin-bottom: 4px; }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .project { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; }
+  .project .tag { font-size: 0.8rem; color: var(--accent-2); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .project h3 { font-size: 1.15rem; color: var(--text); margin: 6px 0 10px; }
+  .project p { color: var(--muted); font-size: 0.95rem; flex: 1; }
+  .project .stack { margin-top: 14px; font-size: 0.85rem; color: var(--accent); }
+  .project .repo { margin-top: 14px; font-weight: 600; font-size: 0.95rem; }
+  .project .repo.none { color: var(--muted); font-weight: 400; }
+
+  .edu-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+  .edu-box h3 { color: var(--text); font-size: 1.05rem; }
+  .edu-box p { color: var(--muted); font-size: 0.97rem; }
+
+  footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 0.92rem; border-top: 1px solid var(--border); }
+  footer a { margin: 0 8px; }
+
+  nav .nav-cv { color: #fff; background: var(--accent); padding: 7px 14px; border-radius: 8px; font-weight: 600; }
+  nav .nav-cv:hover { background: #163052; text-decoration: none; color: #fff; }
+  .badge { display: inline-block; margin-top: 14px; padding: 6px 14px; border-radius: 999px; background: #e3f4ee; color: #1b6b52; font-size: 0.9rem; font-weight: 600; border: 1px solid #bfe4d6; }
+  .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: -40px; position: relative; }
+  .highlight { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; box-shadow: 0 4px 14px rgba(31,58,95,0.06); }
+  .highlight .num { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+  .highlight h3 { font-size: 1rem; margin: 4px 0 6px; color: var(--text); }
+  .highlight p { color: var(--muted); font-size: 0.93rem; }
+  .work-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 32px; }
+  .work-box h3 { color: var(--accent); font-size: 1.2rem; margin: 18px 0 8px; }
+  .work-box ul { padding-left: 20px; color: var(--text); }
+  .work-box li { margin-bottom: 6px; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2.1rem; }
+    nav ul { display: none; }
+    section { padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">Aleena Khurshid</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="nav-cv" href="cv.pdf" download>Download CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <h1>Aleena Khurshid</h1>
+    <div class="role">Computer Vision &amp; AI Engineer</div>
+    <span class="badge">Open to Computer Vision / AI internships</span>
+    <p class="summary">
+      Computer Systems Engineering graduate building computer vision and AI systems in Python.
+      I work on object detection, OCR, NLP, and retrieval-augmented generation, and I am looking for a
+      Computer Vision / AI internship in Pakistan.
+    </p>
+    <div class="meta">
+      <span>Mirpur, Pakistan</span>
+      <span>aleenakhurshid233@gmail.com</span>
+      <span>[phone removed]</span>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="cv.pdf" download>Download CV</a>
+      <a class="btn btn-outline" href="https://github.com/Aleena-Khurshid" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-outline" href="https://linkedin.com/in/aleena-khurshid-ai" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<section class="highlights-wrap">
+  <div class="container">
+    <div class="highlights">
+      <div class="highlight">
+        <div class="num">0.93</div>
+        <h3>Hit@3 on retrieval</h3>
+        <p>Video RAG Assistant, measured on 30 test questions across 3 transcripts.</p>
+      </div>
+      <div class="highlight">
+        <div class="num">0.673</div>
+        <h3>Macro F1, Roman Urdu</h3>
+        <p>A simple baseline beat a fine-tuned DistilBERT model, and I documented why.</p>
+      </div>
+      <div class="highlight">
+        <div class="num">End to end</div>
+        <h3>Vision to user interface</h3>
+        <p>VideoGPT covers detection, OCR, search, database, alerts, and a Streamlit UI.</p>
+      </div>
+      <div class="highlight">
+        <div class="num">45 tests</div>
+        <h3>Tested and deployable</h3>
+        <p>pytest suite, a CI quality check, and a Dockerfile in the RAG project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <h2>About</h2>
+    <p class="section-sub">Who I am and what I work on</p>
+    <p>
+      I am a Computer Systems Engineering graduate from Mirpur University of Science and Technology (MUST).
+      My final year project, VideoGPT, is an intelligent video surveillance system that detects vehicles,
+      reads license plates, and answers natural-language questions about footage. I enjoy building the full
+      pipeline: model, backend, database, and interface. I am working on becoming a practical AI engineer who
+      can explain, test, and deploy the systems I build.
+    </p>
+  </div>
+</section>
+
+<section id="skills" class="alt">
+  <div class="container">
+    <h2>Skills</h2>
+    <p class="section-sub">Tools I have used in projects and internship work</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Computer Vision</h3>
+        <p>Image processing and analysis, OpenCV, YOLOv8 object detection, EasyOCR for text and license plate recognition.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Machine Learning &amp; Deep Learning</h3>
+        <p>Machine learning, deep learning, PyTorch fine-tuning in Jupyter Notebook and Google Colab, TF-IDF, Logistic Regression.</p>
+      </div>
+      <div class="skill-card">
+        <h3>NLP &amp; LLM APIs</h3>
+        <p>Sentiment analysis, RAG pipelines, Gemini API, Groq API, Whisper speech-to-text.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Backend &amp; Tools</h3>
+        <p>Python, FastAPI, Streamlit, Gradio, SQLAlchemy, pytest, Docker, Git, GitHub, Google Colab.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2>Experience</h2>
+    <p class="section-sub">Work and internship</p>
+    <div class="timeline">
+      <div class="item">
+        <h3>Machine Learning &amp; Deep Learning Intern</h3>
+        <div class="org">Corvit Systems, Rawalpindi</div>
+        <div class="when">2025 · 3 months</div>
+        <ul>
+          <li>Worked on machine learning and deep learning tasks during the internship.</li>
+          <li>Built a Roman Urdu sentiment classifier that labels customer messages as negative, neutral, or positive.</li>
+          <li>Finalized the scope of my final year project in computer vision and NLP with guidance from the AI/ML instructor.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="alt">
+  <div class="container">
+    <h2>Projects</h2>
+    <p class="section-sub">Selected work with code on GitHub</p>
+    <div class="projects-grid">
+
+      <div class="project">
+        <div class="tag">NLP · Deep Learning</div>
+        <h3>Roman Urdu Sentiment Classifier</h3>
+        <p>Classifies Roman Urdu customer messages as negative, neutral, or positive. Trained on about 20,000 labeled sentences. A TF-IDF and Logistic Regression baseline (macro F1 0.673) outperformed a fine-tuned multilingual DistilBERT model (0.628). Served with a FastAPI endpoint, a Gradio demo, and pytest tests.</p>
+        <div class="stack">Python · scikit-learn · PyTorch · Hugging Face · FastAPI · Gradio</div>
+        <div class="repo"><a href="https://github.com/Aleena-Khurshid/roman-urdu-sentiment" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </div>
+
+      <div class="project">
+        <div class="tag">Computer Vision · OCR · Final Year Project</div>
+        <h3>VideoGPT: Intelligent Video Surveillance System</h3>
+        <p>A CCTV analysis pipeline that detects vehicles with YOLOv8, reads license plates with EasyOCR, and detects vehicle color. Users search footage in plain language, a multi-camera feature tracks a plate across cameras with a timeline, and Gmail alerts flag events.</p>
+        <div class="stack">Python · YOLOv8 · EasyOCR · OpenCV · Groq API · Streamlit · SQLAlchemy</div>
+        <div class="repo"><a href="https://github.com/Aleena-Khurshid/VideoGPT" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </div>
+
+      <div class="project">
+        <div class="tag">NLP · RAG</div>
+        <h3>Video RAG Assistant</h3>
+        <p>Answers questions about a video's transcript and cites the timestamp of each answer. Uses TF-IDF retrieval with Gemini for answers, with an offline fallback. Retrieval reached Hit@3 of 0.93 and MRR of 0.93 on 30 test questions. Includes 45 pytest tests and a Dockerfile.</p>
+        <div class="stack">Python · FastAPI · Streamlit · Gemini API · Whisper · Docker</div>
+        <div class="repo"><a href="https://github.com/Aleena-Khurshid/video-rag-assistant" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </div>
+
+      <div class="project">
+        <div class="tag">Machine Learning · Web App</div>
+        <h3>Shoe Size Prediction App</h3>
+        <p>A Streamlit web app that predicts a person's shoe size from their age, height, and gender, using a scikit-learn regression model. Includes data analysis with Pandas, NumPy, Matplotlib, and Seaborn.</p>
+        <div class="stack">Python · scikit-learn · Streamlit · Pandas · NumPy</div>
+        <div class="repo"><a href="https://github.com/Aleena-Khurshid/shoe-size-prediction" target="_blank" rel="noopener">View on GitHub →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+    <p class="section-sub">Academic background</p>
+    <div class="edu-box">
+      <h3>BS Computer Systems Engineering</h3>
+      <p>Mirpur University of Science and Technology (MUST), Mirpur, Pakistan · 2022 – 2026 · CGPA: 3.0 / 4.0</p>
+      <p style="margin-top:10px;"><strong>Relevant coursework:</strong> Image Processing and Analysis · Machine Learning · Object-Oriented Programming · Python · C++</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="container">
+    <h2>Contact</h2>
+    <p class="section-sub">Open to Computer Vision and AI internship opportunities in Pakistan</p>
+    <p>Email: <a href="mailto:aleenakhurshid233@gmail.com">aleenakhurshid233@gmail.com</a></p>
+    <p>Phone: [phone removed]</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/aleena-khurshid-ai" target="_blank" rel="noopener">linkedin.com/in/aleena-khurshid-ai</a></p>
+    <p>GitHub: <a href="https://github.com/Aleena-Khurshid" target="_blank" rel="noopener">github.com/Aleena-Khurshid</a></p>
+  </div>
+</section>
+
+<section id="work" class="alt">
+  <div class="container">
+    <h2>Work With Me</h2>
+    <p class="section-sub">Internship roles and project collaboration</p>
+    <div class="work-box">
+      <p>I am looking for a Computer Vision or AI internship where I can contribute to real projects and keep learning from experienced engineers. I am also open to collaborating on computer vision and NLP projects, including research and open-source work. If you have an idea and want to work on it together, feel free to email me at aleenakhurshid233@gmail.com.</p>
+
+      <h3>What I can help with</h3>
+      <ul>
+        <li>Object detection and video analysis pipelines (YOLOv8, OpenCV)</li>
+        <li>Text recognition and OCR for images and video frames (EasyOCR)</li>
+        <li>Text classification and sentiment analysis, including Urdu and Roman Urdu</li>
+        <li>RAG question-answering systems with FastAPI and Streamlit interfaces</li>
+        <li>Turning a model into a working, tested API with a clear setup guide</li>
+      </ul>
+
+      <h3>How to reach me</h3>
+      <p>
+        <a class="btn btn-primary" href="mailto:aleenakhurshid233@gmail.com">Email me</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/aleena-khurshid-ai" target="_blank" rel="noopener">Message on LinkedIn</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Aleena Khurshid</p>
+  </div>
+</footer>
+
+</body>
+</html>
